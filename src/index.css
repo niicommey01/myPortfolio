@@ -82,9 +82,13 @@ body {
 .terminal-input-line,
 .terminal-output-line {
   font-size: 1.1rem;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.terminal-output-line:empty {
+  margin-bottom: 20px;
 }
 
 .terminal-caret {

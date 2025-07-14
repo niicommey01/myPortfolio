@@ -65,6 +65,7 @@ const terminalData = {
       label: " • Project Link",
       value: {text: "https://github.com/niicommey01/task-tracker", href: "https://github.com/niicommey01/task-tracker"} 
     },
+    { type: "output", value: "" },
 
     { type: "output", value: "Airline Database" },
     { type: "output", value: "  • Tech Stack: MySQL" },
@@ -82,6 +83,7 @@ const terminalData = {
       label: " • Project Link",
       value: {text: "https://github.com/niicommey01/Task-Tracker-App", href: "https://github.com/niicommey01/Task-Tracker-App"} 
     },
+    { type: "output", value: "" },
 
     { type: "output", value: "CauseHive - A donation platform" },
     { type: "output", value: "  • Tech Stack: React, Django, PostgreSQL, REST APIs" },
