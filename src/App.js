@@ -67,11 +67,11 @@ const terminalData = {
     },
     { type: "output", value: "" },
 
-    { type: "output", value: " - Airline Database" },
-    { type: "output", value: "  • Tech Stack: MySQL" },
-    { type: "output", value: "  • Designed ERD diagram" },
-    { type: "output", value: "  • Created relational tables using MySQL Workbench" },
-    { type: "output", value: "" },
+    // { type: "output", value: " - Airline Database" },
+    // { type: "output", value: "  • Tech Stack: MySQL" },
+    // { type: "output", value: "  • Designed ERD diagram" },
+    // { type: "output", value: "  • Created relational tables using MySQL Workbench" },
+    // { type: "output", value: "" },
 
     { type: "output", value: " - Task Tracker – Desktop App" },
     { type: "output", value: "  • Tech Stack: Python, PyQt5, JSON" },
