@@ -21,7 +21,7 @@ const terminalData = {
     { type: "output", value: "" },
     { type: "output", value: "I'm a Computer Science student at the University of Ghana with a passion for cybersecurity and backend development. I enjoy building secure, user-focused applications using Django, .NET, and REST APIs. I’m currently expanding my skills in Python and exploring the cybersecurity landscape through hands-on projects and certifications." },
     { type: "output", value: "" },
-    { type: "output", value: "I believe technology should empower and protect — and I’m committed to helping individuals and organizations stay safe online." },
+    { type: "output", value: "I believe technology should empower and protect and I’m committed to helping individuals and organizations stay safe online." },
     { type: "output", value: "" },
     { type: "output", value: "Fun Fact: The stress from bugs entices me." }
   ],
