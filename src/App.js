@@ -278,14 +278,14 @@ function App() {
   };
   
   // Tap handler for mobile devices: Focus input on tap anywhere on the terminal
-  function handleTerminalTap(e){ 
-    if (isMobile && inputLineRef.current && !showHelp ) {
-      // Prevent focusing if tapping on links or buttons
-      if (!e.target.closest('a, button, .terminal-icon')) {
-        inputLineRef.current.focus();
-      }
-    }
-  }
+  // function handleTerminalTap(e){ 
+  //   if (isMobile && inputLineRef.current && !showHelp ) {
+  //     // Prevent focusing if tapping on links or buttons
+  //     if (!e.target.closest('a, button, .terminal-icon')) {
+  //       inputLineRef.current.focus();
+  //     }
+  //   }
+  // }
 
   // Handle command
   const handleCommand = (cmd) => {

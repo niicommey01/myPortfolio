@@ -216,14 +216,3 @@ body {
     max-width: 90vw;
   }
 }
-
-.terminal-mobile-input {
-  background: transparent;
-  color: #7fff00;
-  border: none;
-  outline: none;
-  font-size: 1.1rem;
-  font-family: inherit;
-  width: 100%;
-  min-width: 2em;
-}
