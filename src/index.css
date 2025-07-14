@@ -2,16 +2,19 @@ body {
   background: #000;
   margin: 0;
   font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 .terminal-bg {
   background: #000;
   color: #7fff00;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
   font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .terminal-header {
@@ -101,6 +104,8 @@ body {
   flex: 1;
   overflow-y: auto;
   box-sizing: border-box;
+  overflow-x: auto;
+  max-width: 100vw;
 }
 
 .terminal-input-line,
