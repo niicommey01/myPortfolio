@@ -6,14 +6,14 @@ const terminalData = {
     {
       type: "output",
       value:
-        "Welcome to Nii's portfolio. Type “--help” or “\\h” to get help for commands",
+        "Welcome to Nii's portfolio. Type “help” or “\\h” to get help for commands",
     },
   ],
   help: [
-    { type: "output", value: "--about   \\a   -  Brings the information about Nii" },
-    { type: "output", value: "--contact \\c   -  Get Nii’s contact details" },
-    { type: "output", value: "--projects \\p  -  See projects Nii has worked on" },
-    { type: "output", value: "--clear   \\cls -  Clear the terminal" },
+    { type: "output", value: "about   \\a   -  Brings the information about Nii" },
+    { type: "output", value: "contact \\c   -  Get Nii’s contact details" },
+    { type: "output", value: "projects \\p  -  See projects Nii has worked on" },
+    { type: "output", value: "clear   \\cls -  Clear the terminal" },
   ],
   about: [
     { type: "output", value: "Name: Jude Nii Klemesu Commey" },
@@ -96,20 +96,20 @@ const terminalData = {
 };
 
 const commands = {
-  "--help": "help",
+  "help": "help",
   "\\h": "help",
-  "--about": "about",
+  "about": "about",
   "\\a": "about",
-  "--contact": "contact",
+  "contact": "contact",
   "\\c": "contact",
-  "--projects": "projects",
+  "projects": "projects",
   "\\p": "projects",
-  "--clear": "clear",
+  "clear": "clear",
   "\\cls": "clear",
 };
 
 const allCommands = [
-  "--help", "\\h", "--about", "\\a", "--contact", "\\c", "--projects", "\\p", "--clear", "\\cls"
+  "help", "\\h", "about", "\\a", "contact", "\\c", "projects", "\\p", "clear", "\\cls"
 ];
 
 // Rendering function for output lines
@@ -278,7 +278,7 @@ function App() {
         { type: "input", value: cmd },
         {
           type: "output",
-          value: `Unknown command: ${cmd}. Type --help or \\h for a list of commands.`,
+          value: `Unknown command: ${cmd}. Type help or \\h for a list of commands.`,
         },
       ]);
     }
@@ -359,11 +359,11 @@ function App() {
           <div className="terminal-help-content" onClick={e => e.stopPropagation()}>
             <h2>Available Commands</h2>
             <ul>
-              <li><b>--about</b> or <b>\a</b> – About Nii</li>
-              <li><b>--contact</b> or <b>\c</b> – Contact details</li>
-              <li><b>--projects</b> or <b>\p</b> – Projects</li>
-              <li><b>--help</b> or <b>\h</b> – Help</li>
-              <li><b>--clear</b> or <b>\cls</b> – Clear terminal</li>
+              <li><b>about</b> or <b>\a</b> – About Nii</li>
+              <li><b>contact</b> or <b>\c</b> – Contact details</li>
+              <li><b>projects</b> or <b>\p</b> – Projects</li>
+              <li><b>help</b> or <b>\h</b> – Help</li>
+              <li><b>gitclear</b> or <b>\cls</b> – Clear terminal</li>
             </ul>
             <button onClick={() => setShowHelp(false)}>Close</button>
           </div>
