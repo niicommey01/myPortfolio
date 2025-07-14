@@ -6,14 +6,14 @@ const terminalData = {
     {
       type: "output",
       value:
-        "Welcome to Nii's portfolio. Type “help” or “\\h” to get help for commands",
+        "Welcome to Nii's portfolio. Type “--help” or “\\h” to get help for commands",
     },
   ],
   help: [
-    { type: "output", value: "about   \\a   -  Brings the information about Nii" },
-    { type: "output", value: "contact \\c   -  Get Nii’s contact details" },
-    { type: "output", value: "projects \\p  -  See projects Nii has worked on" },
-    { type: "output", value: "clear   \\cls -  Clear the terminal" },
+    { type: "output", value: "--about   \\a   -  Brings the information about Nii" },
+    { type: "output", value: "--contact \\c   -  Get Nii’s contact details" },
+    { type: "output", value: "--projects \\p  -  See projects Nii has worked on" },
+    { type: "output", value: "--clear   \\cls -  Clear the terminal" },
   ],
   about: [
     { type: "output", value: "Name: Jude Nii Klemesu Commey" },
@@ -21,7 +21,7 @@ const terminalData = {
     { type: "output", value: "" },
     { type: "output", value: "I'm a Computer Science student at the University of Ghana with a passion for cybersecurity and backend development. I enjoy building secure, user-focused applications using Django, .NET, and REST APIs. I’m currently expanding my skills in Python and exploring the cybersecurity landscape through hands-on projects and certifications." },
     { type: "output", value: "" },
-    { type: "output", value: "I believe technology should empower and protect and I’m committed to helping individuals and organizations stay safe online." },
+    { type: "output", value: "I believe technology should empower and protect — and I’m committed to helping individuals and organizations stay safe online." },
     { type: "output", value: "" },
     { type: "output", value: "Fun Fact: The stress from bugs entices me." }
   ],
@@ -39,77 +39,60 @@ const terminalData = {
     {
       type: "output",
       label: "LinkedIn",
-      value: { text: "Jude (Nii Klemesu) Commey", href: "https://linkedin.com/in/niicommey01" }
+      value: { text: "linkedin.com/in/niicommey01", href: "https://linkedin.com/in/niicommey01" }
     },
     {
       type: "output",
       label: "GitHub",
-      value: { text: "Nii Commey", href: "https://github.com/niicommey01" }
+      value: { text: "github.com/niicommey01", href: "https://github.com/niicommey01" }
     }
   ],
   projects: [
-    { type: "output", value: " - Fallen Angel – Online Clothing Brand Startup" },
-    { type: "output", value: "   • Tech Stack: React, Django, PostgreSQL, REST APIs" },
-    { type: "output", value: "   • Built backend with Django" },
-    { type: "output", value: "   • Integrated Google & Facebook OAuth" },
-    { type: "output", value: "   • Payment system via Paystack" },
-    { type: "output", value: "   • Project still in progress" },
+    { type: "output", value: "Fallen Angel – Online Clothing Brand Startup" },
+    { type: "output", value: "  • Tech Stack: React, Django, PostgreSQL, REST APIs" },
+    { type: "output", value: "  • Built backend with Django" },
+    { type: "output", value: "  • Integrated Google & Facebook OAuth" },
+    { type: "output", value: "  • Payment system via Paystack" },
+    { type: "output", value: "  • Project still in progress" },
     { type: "output", value: "" },
 
-    { type: "output", value: " - Task Tracker – CLI Version" },
-    { type: "output", value: "   • Tech Stack: Python" },
-    { type: "output", value: "   • Command-line interface for task management" },
-    { type: "output", value: "   • Categorizes tasks and stores them in JSON" },
-    { type: "output", value: "   • Prints task records to screen" },
-    { type: "output", 
-      label: " • Project Link",
-      value: {text: "https://github.com/niicommey01/task-tracker", href: "https://github.com/niicommey01/task-tracker"} 
-    },
+    { type: "output", value: "Task Tracker – CLI Version" },
+    { type: "output", value: "  • Tech Stack: Python" },
+    { type: "output", value: "  • Command-line interface for task management" },
+    { type: "output", value: "  • Categorizes tasks and stores them in JSON" },
+    { type: "output", value: "  • Prints task records to screen" },
     { type: "output", value: "" },
 
-    // { type: "output", value: " - Airline Database" },
-    // { type: "output", value: "  • Tech Stack: MySQL" },
-    // { type: "output", value: "  • Designed ERD diagram" },
-    // { type: "output", value: "  • Created relational tables using MySQL Workbench" },
-    // { type: "output", value: "" },
-
-    { type: "output", value: " - Task Tracker – Desktop App" },
-    { type: "output", value: "   • Tech Stack: Python, PyQt5, JSON" },
-    { type: "output", value: "   • Cross-platform desktop app (Linux & Windows)" },
-    { type: "output", value: "   • Stores tasks in JSON" },
-    { type: "output", value: "   • GUI built with PyQt5" },
-    {
-      type: "output",
-      label: " • Project Link",
-      value: {text: "https://github.com/niicommey01/Task-Tracker-App", href: "https://github.com/niicommey01/Task-Tracker-App"} 
-    },
+    { type: "output", value: "Airline Database" },
+    { type: "output", value: "  • Tech Stack: MySQL" },
+    { type: "output", value: "  • Designed ERD diagram" },
+    { type: "output", value: "  • Created relational tables using MySQL Workbench" },
     { type: "output", value: "" },
 
-    { type: "output", value: " - CauseHive - A donation platform" },
-    { type: "output", value: "   • Tech Stack: React, Django, PostgreSQL, REST APIs" },
-    { type: "output", value: "   • Built backend with Django" },
-    { type: "output", value: "   • Integrated Google OAuth" },
-    { type: "output", value: "   • Payment system via Paystack" },
-    { type: "output", value: "   • Project still in progress" },
-    { type: "output", value: "" },
+    { type: "output", value: "Task Tracker – Desktop App" },
+    { type: "output", value: "  • Tech Stack: Python, PyQt5, JSON" },
+    { type: "output", value: "  • Cross-platform desktop app (Linux & Windows)" },
+    { type: "output", value: "  • Stores tasks in JSON" },
+    { type: "output", value: "  • GUI built with PyQt5" },
+    { type: "output", value: "" }
   ],
 };
 
 const commands = {
-  "help": "help",
+  "--help": "help",
   "\\h": "help",
-  "about": "about",
+  "--about": "about",
   "\\a": "about",
-  "contact": "contact",
+  "--contact": "contact",
   "\\c": "contact",
-  "projects": "projects",
+  "--projects": "projects",
   "\\p": "projects",
-  "clear": "clear",
+  "--clear": "clear",
   "\\cls": "clear",
 };
 
 const allCommands = [
-  "help", "\\h", "about", "\\a", "contact", "\\c", "projects", "\\p", "clear", "\\cls"
+  "--help", "\\h", "--about", "\\a", "--contact", "\\c", "--projects", "\\p", "--clear", "\\cls"
 ];
 
 // Rendering function for output lines
@@ -173,8 +156,13 @@ function App() {
   const terminalEndRef = useRef(null);
   const inputLineRef = useRef(null);
 
-  useEffect(() => {
+  // Scroll to bottom utility
+  const scrollToBottom = () => {
     terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
   }, [history, showHelp]);
 
   // Focus input when clicking anywhere on the input line
@@ -255,6 +243,7 @@ function App() {
       e.preventDefault();
     }
     // Ignore all other keys (Tab, etc.)
+    scrollToBottom();
   };
 
   // Handle command
@@ -278,7 +267,7 @@ function App() {
         { type: "input", value: cmd },
         {
           type: "output",
-          value: `Unknown command: ${cmd}. Type help or \\h for a list of commands.`,
+          value: `Unknown command: ${cmd}. Type --help or \\h for a list of commands.`,
         },
       ]);
     }
@@ -316,7 +305,7 @@ function App() {
               <span className="terminal-caret">&gt;</span> {item.value}
             </div>
           ) : (
-            <div key={idx} className="terminal-output-line">
+            <div key={idx} className={`terminal-output-line${!item.value ? " blank-line" : ""}`}>
               {renderOutputLine(item)}
             </div>
           )
@@ -331,13 +320,16 @@ function App() {
             className="terminal-fake-input"
             tabIndex={0}
             ref={inputLineRef}
-            onFocus={() => setIsInputFocused(true)}
+            onFocus={() => {
+              setIsInputFocused(true);
+              scrollToBottom();
+            }}
             onBlur={() => setIsInputFocused(false)}
             onKeyDown={handleFakeInputKeyDown}
             onClick={() => {
               setIsInputFocused(true);
-              // Place caret at end if not already focused
               setCaretPos(input.length);
+              scrollToBottom();
             }}
             spellCheck={false}
             aria-label="Terminal input"
@@ -359,11 +351,11 @@ function App() {
           <div className="terminal-help-content" onClick={e => e.stopPropagation()}>
             <h2>Available Commands</h2>
             <ul>
-              <li><b>about</b> or <b>\a</b> – About Nii</li>
-              <li><b>contact</b> or <b>\c</b> – Contact details</li>
-              <li><b>projects</b> or <b>\p</b> – Projects</li>
-              <li><b>help</b> or <b>\h</b> – Help</li>
-              <li><b>gitclear</b> or <b>\cls</b> – Clear terminal</li>
+              <li><b>--about</b> or <b>\a</b> – About Nii</li>
+              <li><b>--contact</b> or <b>\c</b> – Contact details</li>
+              <li><b>--projects</b> or <b>\p</b> – Projects</li>
+              <li><b>--help</b> or <b>\h</b> – Help</li>
+              <li><b>--clear</b> or <b>\cls</b> – Clear terminal</li>
             </ul>
             <button onClick={() => setShowHelp(false)}>Close</button>
           </div>
