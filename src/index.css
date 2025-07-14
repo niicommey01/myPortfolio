@@ -1,0 +1,189 @@
+body {
+  background: #000;
+  margin: 0;
+  font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
+}
+
+.terminal-bg {
+  background: #000;
+  color: #7fff00;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  background: #222;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 16px 0;
+  position: relative;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.terminal-title {
+  font-size: 1.3rem;
+  font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+}
+
+.terminal-help {
+  position: absolute;
+  left: 24px;
+  top: 12px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #7fff00;
+  user-select: none;
+}
+
+.terminal-close {
+  position: absolute;
+  right: 24px;
+  top: 12px;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .terminal-header {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+  .terminal-title {
+    font-size: 1rem;
+  }
+  .terminal-help {
+    left: 12px;
+    top: 8px;
+    font-size: 1.5rem;
+  }
+  .terminal-close {
+    right: 12px;
+    top: 8px;
+    font-size: 1.5rem;
+  }
+}
+
+.terminal-body {
+  padding: 32px 24px;
+  min-height: 80vh;
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.terminal-input-line,
+.terminal-output-line {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-caret {
+  color: #7fff00;
+  font-weight: bold;
+}
+
+.terminal-fake-input {
+  display: inline-block;
+  min-width: 2em;
+  outline: none;
+  background: transparent;
+  color: #7fff00;
+  font-size: 1.1rem;
+  font-family: inherit;
+  border: none;
+  caret-color: transparent; /* Hide the native caret */
+  white-space: pre;
+  cursor: text;
+}
+
+.terminal-underscore {
+  color: #7fff00;
+  font-weight: bold;
+  margin-left: 0;
+  font-size: 1.1rem;
+  user-select: none;
+}
+
+.blink {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to { opacity: 0; }
+}
+
+.terminal-form {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.terminal-suggestions {
+  color: #4cff00;
+  font-size: 0.95rem;
+  margin-left: 2em;
+  margin-bottom: 0.5em;
+}
+.terminal-suggestion {
+  opacity: 0.7;
+}
+
+.terminal-help-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  color: #7fff00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.terminal-help-content {
+  background: #111;
+  border: 2px solid #7fff00;
+  border-radius: 8px;
+  padding: 2em;
+  min-width: 250px;
+  max-width: 90vw;
+  text-align: left;
+}
+.terminal-help-content h2 {
+  margin-top: 0;
+  color: #7fff00;
+}
+.terminal-help-content button {
+  margin-top: 1em;
+  background: #222;
+  color: #7fff00;
+  border: 1px solid #7fff00;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* Responsive styles for input and output */
+@media (max-width: 600px) {
+  .terminal-body {
+    padding: 16px 8px;
+    min-height: 70vh;
+  }
+  .terminal-input-line,
+  .terminal-output-line {
+    font-size: 0.95rem;
+  }
+  .terminal-fake-input {
+    font-size: 0.95rem;
+    min-width: 2em;
+    max-width: 90vw;
+  }
+}
