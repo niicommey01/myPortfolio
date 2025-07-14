@@ -10,10 +10,10 @@ const terminalData = {
     },
   ],
   help: [
-    { type: "output", value: "about   \\a   -  Read about Nii" },
-    { type: "output", value: "contact \\c   -  Get Nii’s contact details" },
-    { type: "output", value: "projects \\p  -  See projects Nii has worked on" },
-    { type: "output", value: "clear   \\cls -  Clear the terminal" },
+    { type: "output", value: "about  or  \\a   -  Read about Nii" },
+    { type: "output", value: "contact  or  \\c   -  Get Nii’s contact details" },
+    { type: "output", value: "projects  or  \\p  -  See projects Nii has worked on" },
+    { type: "output", value: "clear  or  \\cls -  Clear the terminal" },
   ],
   about: [
     { type: "output", value: "Name: Jude Nii Klemesu Commey" },
