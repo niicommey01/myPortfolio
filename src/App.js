@@ -61,6 +61,11 @@ const terminalData = {
     { type: "output", value: "   • Command-line interface for task management" },
     { type: "output", value: "   • Categorizes tasks and stores them in JSON" },
     { type: "output", value: "   • Prints task records to screen" },
+    {
+      type: "output",
+      label: "Project Link",
+      value: { text: "Task Tracker - CLI", href: "https://github.com/niicommey01/task-tracker" }
+    },
     { type: "output", value: "" },
 
     { type: "output", value: " - Airline Database" },
@@ -74,6 +79,11 @@ const terminalData = {
     { type: "output", value: "   • Cross-platform desktop app (Linux & Windows)" },
     { type: "output", value: "   • Stores tasks in JSON" },
     { type: "output", value: "   • GUI built with PyQt5" },
+    {
+      type: "output",
+      label: "Project Link",
+      value: { text: "Task Tracker (Desktop Version)", href: "https://github.com/niicommey01/Task-Tracker-App" }
+    },
     { type: "output", value: "" },
 
     { type: "output", value: " - CauseHive - A donation platform"},
@@ -83,6 +93,19 @@ const terminalData = {
     { type: "output", value: "   • Payment system via Paystack"},
     { type: "output", value: "   • Project still in progress"},
     { type: "output", value: "" },
+
+    { type: "output", value: "  - Mental Game (Terminal Version)"},
+    { type: "output", value: "   • Tech Stack: C#"},
+    { type: "output", value: "   • Console Application"},
+    { type: "output", value: "   • Game logic implemented in C#"},
+    { type: "output", value: "   • Simple text-based game"},
+    {
+      type: "output",
+      label: "Project Link",
+      value: { text: "MentalGame", href: "https://github.com/niicommey01/MentalGame" }
+    },
+    { type: "output", value: ""},
+
   ],
 };
 
