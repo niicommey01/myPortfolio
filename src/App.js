@@ -10,7 +10,7 @@ const terminalData = {
     },
   ],
   help: [
-    { type: "output", value: "about   \\a   -  Brings the information about Nii" },
+    { type: "output", value: "about   \\a   -  Read about Nii" },
     { type: "output", value: "contact \\c   -  Get Nii’s contact details" },
     { type: "output", value: "projects \\p  -  See projects Nii has worked on" },
     { type: "output", value: "clear   \\cls -  Clear the terminal" },
@@ -151,6 +151,14 @@ function renderOutputLine(item) {
   );
 }
 
+function isMobileDevice() {
+  if (typeof window === "undefined") return false;
+  return (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+    (window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
+  );
+}
+
 function App() {
   const [history, setHistory] = useState([
     { type: "output", value: terminalData.welcome[0].value },
@@ -160,9 +168,16 @@ function App() {
   const [historyIndex, setHistoryIndex] = useState(null);
   const [showHelp, setShowHelp] = useState(false);
   const [isInputFocused, setIsInputFocused] = useState(true);
+  const [isMobile, setIsMobile] = useState(isMobileDevice());
 
   const terminalEndRef = useRef(null);
   const inputLineRef = useRef(null);
+
+  function handleShowKeyboard() {
+    if (inputLineRef.current) {
+      inputLineRef.current.focus();
+    }
+  }
 
   // Scroll to bottom utility
   const scrollToBottom = () => {
@@ -172,6 +187,14 @@ function App() {
   useEffect(() => {
     scrollToBottom();
   }, [history, showHelp]);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(isMobileDevice());
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Focus input when clicking anywhere on the input line
   useEffect(() => {
@@ -253,6 +276,16 @@ function App() {
     // Ignore all other keys (Tab, etc.)
     scrollToBottom();
   };
+  
+  // Tap handler for mobile devices: Focus input on tap anywhere on the terminal
+  function handleTerminalTap(e){ 
+    if (isMobile && inputLineRef.current && !showHelp ) {
+      // Prevent focusing if tapping on links or buttons
+      if (!e.target.closest('a, button, .terminal-icon')) {
+        inputLineRef.current.focus();
+      }
+    }
+  }
 
   // Handle command
   const handleCommand = (cmd) => {
@@ -304,6 +337,16 @@ function App() {
       <div className="terminal-header">
         <span className="terminal-help" onClick={() => setShowHelp(true)}>?</span>
         <span className="terminal-title">Nii’s Portfolio</span>
+        {isMobile && (
+          <button
+            className="show-keyboard-btn"
+            onClick={handleShowKeyboard}
+            type="button"
+            aria-label="Show keyboard"
+          >
+            ⌨️
+          </button>
+        )}
         <span className="terminal-close" title="Close">×</span>
       </div>
       <div className="terminal-body">
@@ -321,29 +364,68 @@ function App() {
         <form
           className="terminal-form"
           autoComplete="off"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={e => e.preventDefault()}
         >
           <span className="terminal-caret">&gt;</span>
-          <div
-            className="terminal-fake-input"
-            tabIndex={0}
-            ref={inputLineRef}
-            onFocus={() => {
-              setIsInputFocused(true);
-              scrollToBottom();
-            }}
-            onBlur={() => setIsInputFocused(false)}
-            onKeyDown={handleFakeInputKeyDown}
-            onClick={() => {
-              setIsInputFocused(true);
-              setCaretPos(input.length);
-              scrollToBottom();
-            }}
-            spellCheck={false}
-            aria-label="Terminal input"
-          >
-            {renderInputLine()}
-          </div>
+          {isMobile ? (
+            <input
+              ref={inputLineRef}
+              type="text"
+              className="terminal-mobile-input"
+              value={input}
+              onChange={e => {
+                setInput(e.target.value);
+                setCaretPos(e.target.value.length);
+              }}
+              onFocus={() => setIsInputFocused(true)}
+              onBlur={() => setIsInputFocused(false)}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  if (input.trim() !== "") {
+                    handleCommand(input);
+                    setInput("");
+                    setCaretPos(0);
+                    setHistoryIndex(null);
+                  }
+                }
+              }}
+              autoFocus
+              spellCheck={false}
+              aria-label="Terminal input"
+              style={{
+                background: "transparent",
+                color: "#7fff00",
+                border: "none",
+                outline: "none",
+                fontSize: "1.1rem",
+                fontFamily: "inherit",
+                width: "100%",
+                minWidth: "2em"
+              }}
+            />
+          ) : (
+            <div
+              className="terminal-fake-input"
+              tabIndex={0}
+              ref={inputLineRef}
+              onFocus={() => {
+                setIsInputFocused(true);
+                scrollToBottom();
+              }}
+              onBlur={() => setIsInputFocused(false)}
+              onKeyDown={handleFakeInputKeyDown}
+              onClick={() => {
+                setIsInputFocused(true);
+                setCaretPos(input.length);
+                scrollToBottom();
+              }}
+              spellCheck={false}
+              aria-label="Terminal input"
+            >
+              {renderInputLine()}
+            </div>
+          )}
         </form>
         {suggestions.length > 0 && (
           <div className="terminal-suggestions">
