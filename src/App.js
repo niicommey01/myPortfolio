@@ -74,10 +74,10 @@ const terminalData = {
     // { type: "output", value: "" },
 
     { type: "output", value: " - Task Tracker – Desktop App" },
-    { type: "output", value: "  • Tech Stack: Python, PyQt5, JSON" },
-    { type: "output", value: "  • Cross-platform desktop app (Linux & Windows)" },
-    { type: "output", value: "  • Stores tasks in JSON" },
-    { type: "output", value: "  • GUI built with PyQt5" },
+    { type: "output", value: "   • Tech Stack: Python, PyQt5, JSON" },
+    { type: "output", value: "   • Cross-platform desktop app (Linux & Windows)" },
+    { type: "output", value: "   • Stores tasks in JSON" },
+    { type: "output", value: "   • GUI built with PyQt5" },
     {
       type: "output",
       label: " • Project Link",
@@ -85,12 +85,12 @@ const terminalData = {
     },
     { type: "output", value: "" },
 
-    { type: "output", value: " -CauseHive - A donation platform" },
-    { type: "output", value: "  • Tech Stack: React, Django, PostgreSQL, REST APIs" },
-    { type: "output", value: "  • Built backend with Django" },
-    { type: "output", value: "  • Integrated Google OAuth" },
-    { type: "output", value: "  • Payment system via Paystack" },
-    { type: "output", value: "  • Project still in progress" },
+    { type: "output", value: " - CauseHive - A donation platform" },
+    { type: "output", value: "   • Tech Stack: React, Django, PostgreSQL, REST APIs" },
+    { type: "output", value: "   • Built backend with Django" },
+    { type: "output", value: "   • Integrated Google OAuth" },
+    { type: "output", value: "   • Payment system via Paystack" },
+    { type: "output", value: "   • Project still in progress" },
     { type: "output", value: "" },
   ],
 };
