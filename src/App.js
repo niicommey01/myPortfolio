@@ -854,20 +854,6 @@ function getPathItem(path, fs = fileSystem) {
 }
 
 // Helper function to get parent directory
-function getParentDirectory(path, fs = fileSystem) {
-  const parts = path.split("/").filter(p => p);
-  if (parts.length === 0) return fs["/"];
-  
-  const parentPath = "/" + parts.slice(0, -1).join("/");
-  return getDirectoryContents(parentPath, fs);
-}
-
-// Helper function to get filename from path
-function getFilename(path) {
-  const parts = path.split("/").filter(p => p);
-  return parts[parts.length - 1] || "";
-}
-
 // Helper function to format ls output
 function formatLsOutput(contents, showAll = false, longFormat = false) {
   if (!contents) return [];
@@ -1114,22 +1100,6 @@ async function fetchUserIpInfo() {
   }
 }
 
-// Helper function to format time in mm:ss
-function formatTime(ms) {
-  const totalSeconds = Math.floor(ms / 1000);
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-}
-
-// Helper function to truncate text to fit in box
-function truncateText(text, maxLength) {
-  if (text.length <= maxLength) {
-    return text.padEnd(maxLength, ' ');
-  }
-  return text.substring(0, maxLength - 3) + '...';
-}
-
 function App() {
   const [isBooting, setIsBooting] = useState(true);
   const [bootProgress, setBootProgress] = useState(0);
@@ -1250,7 +1220,6 @@ function App() {
     ];
 
     let currentIndex = 0;
-    let totalTime = 0;
 
     const addMessage = (message) => {
       setBootMessages(prev => [...prev, message]);
@@ -1261,7 +1230,6 @@ function App() {
     const processBoot = () => {
       if (currentIndex < bootSequence.length) {
         const item = bootSequence[currentIndex];
-        totalTime += item.delay;
         
         setTimeout(() => {
           addMessage(item.message);
@@ -2676,6 +2644,7 @@ function App() {
             "",
             "DESCRIPTION",
             "    Echo the STRING(s) to standard output.",
+            // eslint-disable-next-line no-template-curly-in-string
             "    Supports environment variable expansion using $VAR or ${VAR} syntax.",
           ],
           whoami: [
