@@ -449,7 +449,7 @@ const terminalData = {
   ],
   resume: [
     { type: "output", value: "╔════════════════════════════════════════════════════════════════════╗" },
-    { type: "output", value: "║                     📄 RESUME - PDF DOCUMENT                      ║" },
+    { type: "output", value: "║                      RESUME - PDF DOCUMENT                      ║" },
     { type: "output", value: "╚════════════════════════════════════════════════════════════════════╝" },
     { type: "output", value: "" },
     { type: "output", value: "This is a PDF file and cannot be displayed directly in the terminal." },
@@ -466,8 +466,8 @@ const terminalData = {
     { 
       type: "output", 
       value: {
-        href: "https://drive.google.com/file/d/1227peCwvlelYkIhEq74uwuLhvr1TN9oj/view?usp=sharing",
-        text: "Click here to view/download my resume"
+        href: "/resume.pdf",
+        text: "📥 Click here to view/download my resume"
       }
     },
     { type: "output", value: "" },
@@ -476,7 +476,6 @@ const terminalData = {
     { type: "output", value: "  $ wget resume.pdf       # Simulates downloading the PDF" },
     { type: "output", value: "" },
     { type: "output", value: "─────────────────────────────────────────────────────────────────────" },
-    // { type: "output", value: "💡 Tip: Replace YOUR_GOOGLE_DRIVE_FILE_ID with your actual resume link" },
     { type: "output", value: "" },
     { type: "output", value: "" },
   ],
@@ -3411,18 +3410,22 @@ function App() {
         if (target.endsWith('.pdf')) {
           const currentDir = getDirectoryContents(currentPath, fileSystemState);
           if (currentDir && currentDir[target] && currentDir[target].isPdf) {
+            // Trigger actual download
+            const link = document.createElement('a');
+            link.href = '/resume.pdf';
+            link.download = 'Nii_Commey_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
             setHistory((h) => [
               ...h,
               { type: "input", value: cmd },
               { type: "output", value: `--${new Date().toISOString().split('T')[0]} ${new Date().toTimeString().split(' ')[0]}--  ${target}` },
-              { type: "output", value: "Resolving host..." },
-              { type: "output", value: "Connecting to server..." },
+              { type: "output", value: `Saving to: 'Nii_Commey_Resume.pdf'` },
               { type: "output", value: "" },
-              { type: "output", value: "📥 PDF download simulated! In a real system, this would download the file." },
-              { type: "output", value: "" },
-              { type: "output", value: "To view the actual resume, use:" },
-              { type: "output", value: "  $ cat resume.pdf    # View download link" },
-              { type: "output", value: "  $ open resume.pdf   # Open in new tab" },
+              { type: "output", value: " Downloaded: Nii_Commey_Resume.pdf" },
+              { type: "output", value: "✓ File saved to your Downloads folder!" },
               { type: "output", value: "" },
               { type: "output", value: "" },
             ]);
@@ -3473,19 +3476,17 @@ function App() {
         
         // Handle PDF files
         if (file.isPdf || filename.endsWith('.pdf')) {
-          // Open PDF in new tab - replace with your actual resume URL
-          const resumeUrl = "https://drive.google.com/file/d/1227peCwvlelYkIhEq74uwuLhvr1TN9oj/view?usp=sharing";
+          // Open PDF in new tab - uses local file from public folder
+          const resumeUrl = "/resume.pdf";
           window.open(resumeUrl, '_blank');
           
           setHistory((h) => [
             ...h,
             { type: "input", value: cmd },
-            { type: "output", value: `📄 Opening ${filename} in new tab...` },
+            { type: "output", value: ` Opening ${filename} in new tab...` },
             { type: "output", value: "" },
             { type: "output", value: "✓ Resume opened successfully!" },
             { type: "output", value: "" },
-            // { type: "output", value: "💡 Tip: Update the resume URL in the code with your actual Google Drive" },
-            // { type: "output", value: "   or Dropbox link to share your real resume." },
           ]);
           return;
         }
